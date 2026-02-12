@@ -80,5 +80,17 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
 </script>
 </body>
 </html><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2300f3ff%22 /></svg>">
+<hr style="border: 0; border-top: 1px solid var(--blueprint-cyan); margin: 30px 0;">
+
+<h3>[ ESTABLISH_UPLINK ]</h3>
+<form action="https://formspree.io/f/your-id-here" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="IDENTIFIER (NAME)" required>
+    <input type="email" name="_replyto" placeholder="COMMS_CHANNEL (EMAIL)" required>
+    <textarea name="message" placeholder="ENCRYPTED_MESSAGE" rows="4" required></textarea>
+    <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">
+        TRANSMIT_DATA
+    </button>
+</form>
+
 
 
