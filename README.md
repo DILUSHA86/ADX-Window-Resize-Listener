@@ -46,3 +46,10 @@ AdxResize Listener
     animate();
 <h1 class="typewriter">DILUSHA86</h1>
 <h3 class="typewriter">[ CURRENT_PROJECT: GOLDEN_EAGLE_PRIMAL ]</h3>
+<div class="audio-control" onclick="toggleAudio()">
+    [ AUDIO_SENSORS: <span id="audio-status">OFF</span> ]
+</div>
+
+<audio id="bg-track" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
+</audio>
