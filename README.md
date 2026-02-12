@@ -366,3 +366,7 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     <div id="status-led" style="width: 10px; height: 10px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 5px #ff0000;"></div>
     <span style="font-size: 0.7rem; color: #00f3ff;">AUDIO_ENGINE: <span id="status-text">STANDBY</span></span>
 </div>
+<div id="chronometer" style="font-family: 'Courier New', monospace; color: #00f3ff; margin-top: 5px;">
+    [ <span id="local-time">00:00:00</span> ]
+    <div style="font-size: 0.6rem; opacity: 0.7;">LOC: ANURADHAPURA_LK</div>
+</div>
