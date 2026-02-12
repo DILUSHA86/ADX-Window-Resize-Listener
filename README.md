@@ -348,3 +348,11 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
 </script>
 </body>
 </html>
+<div class="status-box">
+    <div>[ NODE_STATUS: ACTIVE ]</div>
+    <div>[ THREAT_LEVEL: <span id="threat-percent">0</span>% ]</div>
+    <div style="width: 100%; height: 4px; background: #222; margin-top: 5px;">
+        <div id="threat-bar" style="width: 0%; height: 100%; background: var(--blueprint-cyan); transition: width 0.3s, background 0.5s;"></div>
+    </div>
+    <div id="coords" style="margin-top: 10px;">LAT: -- | LONG: --</div>
+</div>
