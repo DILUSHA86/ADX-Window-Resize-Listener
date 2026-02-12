@@ -1,4 +1,4 @@
-# ADX-Window-Resize-Listener
+8.8.8.8# ADX-Window-Resize-Listener
 AdxResize Listener
 <script>
     // 1. Scene Setup
@@ -247,3 +247,19 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
 <div id="form-status" style="display:none; margin-top: 20px; color: var(--blueprint-cyan); border: 1px solid var(--blueprint-cyan); padding: 15px; text-align: center;">
     [ STATUS: TRANSMISSION_SUCCESSFUL_SYNC_COMPLETE ]
 </div>
+<!-- modify this form HTML and place wherever you want your form --> 
+<form Anuradhapura Sri Lanka
+  action="https://formspree.io/f/xzdadlyy"
+  method="POST"
+>
+  <label>
+    Your email:Dilusha2010@gmail.com 
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message: ADX PROTOCOL 
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
