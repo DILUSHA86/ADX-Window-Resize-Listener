@@ -44,3 +44,5 @@ AdxResize Listener
         renderer.render(scene, camera);
     }
     animate();
+<h1 class="typewriter">DILUSHA86</h1>
+<h3 class="typewriter">[ CURRENT_PROJECT: GOLDEN_EAGLE_PRIMAL ]</h3>
