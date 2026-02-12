@@ -236,3 +236,14 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
   <!-- your other form fields go here -->
   <button type="submit">Send</button>
 </form>
+<form id="contact-form" action="https://formspree.io/f/your-id-here" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="IDENTIFIER (NAME)" required>
+    <input type="email" name="_replyto" placeholder="COMMS_CHANNEL (EMAIL)" required>
+    <textarea name="message" placeholder="ENCRYPTED_MESSAGE" rows="4" required></textarea>
+    <button type="submit" id="submit-btn" class="btn" style="width: 100%; border: none; cursor: pointer;">
+        TRANSMIT_DATA
+    </button>
+</form>
+<div id="form-status" style="display:none; margin-top: 20px; color: var(--blueprint-cyan); border: 1px solid var(--blueprint-cyan); padding: 15px; text-align: center;">
+    [ STATUS: TRANSMISSION_SUCCESSFUL_SYNC_COMPLETE ]
+</div>
