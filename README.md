@@ -370,3 +370,10 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     [ <span id="local-time">00:00:00</span> ]
     <div style="font-size: 0.6rem; opacity: 0.7;">LOC: ANURADHAPURA_LK</div>
 </div>
+<div class="hud-time-container" style="border-left: 2px solid #00f3ff; padding-left: 10px; margin-top: 20px;">
+    <div style="font-size: 0.6rem; letter-spacing: 2px; color: #00f3ff; opacity: 0.6;">SYSTEM_TIME</div>
+    <div id="local-time" style="font-family: 'Share Tech Mono', monospace; font-size: 1.5rem; color: #00f3ff; text-shadow: 0 0 10px #00f3ff;">
+        00:00:00
+    </div>
+    <div style="font-size: 0.5rem; color: #00f3ff;">ZONE: ASIA/COLOMBO | UTC+5.5</div>
+</div>
