@@ -434,3 +434,7 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </script>
 </body>
 </html>
+<div id="data-stream" style="position: absolute; bottom: 20px; left: 20px; color: #00f3ff; font-size: 0.7rem; line-height: 1.5;">
+    <div>> CALCULATING_VECTORS...</div>
+    <div id="distance-list"></div>
+</div>
