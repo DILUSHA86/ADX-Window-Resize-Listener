@@ -383,3 +383,54 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
         > INITIALIZING_LOG...
     </div>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ADX GEO-MAPPER</title>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; font-family: monospace; }
+        #hud { position: absolute; top: 20px; left: 20px; color: #00f3ff; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div id="hud">
+        <h1>ADX_GEO_MAPPER_V1</h1>
+        <div id="coords">LAT: 8.3114 | LON: 80.4037</div>
+        <div id="status">SCANNING_PLANETARY_DATA...</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create the Globe
+        const geometry = new THREE.SphereGeometry(5, 64, 64);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x002244,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.5
+        });
+        const globe = new THREE.Mesh(geometry, material);
+        scene.add(globe);
+
+        // Add Atmosphere Glow
+        const light = new THREE.PointLight(0x00f3ff, 2, 50);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x333333));
+
+        camera.position.z = 12;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            globe.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
