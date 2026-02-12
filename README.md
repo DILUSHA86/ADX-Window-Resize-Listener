@@ -63,7 +63,31 @@ AdxResize Listener
 :root{--blueprint-cyan:#00f3ff;--bg-dark:#020b1a;--hazard-yellow:#f4d03f}body{margin:0;background:var(--bg-dark);color:#fff;font-family:'Courier New',monospace;overflow-x:hidden}#canvas-container{position:fixed;top:0;left:0;z-index:-1}.hud-overlay{padding:40px;max-width:800px;background:rgba(2,11,26,.8);border-right:2px solid var(--blueprint-cyan);min-height:100vh;backdrop-filter:blur(10px)}.adx-badge{display:inline-block;padding:5px 15px;border:1px solid var(--blueprint-cyan);color:var(--blueprint-cyan);margin-bottom:20px}.rate-card{width:100%;border-collapse:collapse;margin-top:20px;border:1px solid rgba(0,243,255,.3)}.rate-card td,.rate-card th{padding:10px;border:1px solid rgba(0,243,255,.2);text-align:left}.btn{display:inline-block;padding:10px 20px;background:var(--blueprint-cyan);color:var(--bg-dark);text-decoration:none;font-weight:700;margin-top:20px;position:relative;transition:background .3s}.btn:hover{background:#fff;box-shadow:0 0 20px var(--blueprint-cyan)}.audio-control{margin-top:20px;cursor:pointer;color:var(--hazard-yellow);font-size:.8rem;display:inline-block;border:1px dashed var(--hazard-yellow);padding:5px 10px}@keyframes glitch{0%{transform:translate(0)}20%{transform:translate(-3px,3px)}40%{transform:translate(-3px,-3px)}60%{transform:translate(3px,3px)}80%{transform:translate(3px,-3px)}100%{transform:translate(0)}}.btn:hover::after,.btn:hover::before{content:"VIEW GITHUB ACCESS";position:absolute;top:0;left:0;width:100%;height:100%;background:var(--blueprint-cyan);display:flex;align-items:center;justify-content:center;opacity:.8}.btn:hover::before{color:#ff00c1;z-index:-1;animation:glitch .3s cubic-bezier(.25,.46,.45,.94) both infinite}.btn:hover::after{color:#00fff9;z-index:-2;animation:glitch .3s cubic-bezier(.25,.46,.45,.94) reverse both infinite}
 </style>
 </head>
-<body>
+<body>.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    padding: 12px;
+    color: var(--blueprint-cyan);
+    font-family: 'Courier New', monospace;
+    outline: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--blueprint-cyan);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: rgba(0, 243, 255, 0.4);
+}
+
 <div id="canvas-container"></div>
 <div class="hud-overlay">
 <div class="adx-badge">ADX_GENESIS_VERIFIED</div>
@@ -91,6 +115,17 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
         TRANSMIT_DATA
     </button>
 </form>
+<form id="contact-form" action="https://formspree.io/f/your-id-here" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="IDENTIFIER (NAME)" required>
+    <input type="email" name="_replyto" placeholder="COMMS_CHANNEL (EMAIL)" required>
+    <textarea name="message" placeholder="ENCRYPTED_MESSAGE" rows="4" required></textarea>
+    <button type="submit" id="submit-btn" class="btn" style="width: 100%; border: none; cursor: pointer;">
+        TRANSMIT_DATA
+    </button>
+</form>
+<div id="form-status" style="display:none; margin-top: 20px; color: var(--blueprint-cyan); border: 1px solid var(--blueprint-cyan); padding: 15px; text-align: center;">
+    [ STATUS: TRANSMISSION_SUCCESSFUL_SYNC_COMPLETE ]
+</div>
 
 
 
