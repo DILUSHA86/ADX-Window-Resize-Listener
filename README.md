@@ -377,3 +377,9 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </div>
     <div style="font-size: 0.5rem; color: #00f3ff;">ZONE: ASIA/COLOMBO | UTC+5.5</div>
 </div>
+<div id="data-log-container" style="margin-top: 20px; border-top: 1px solid rgba(0, 243, 255, 0.3); padding-top: 10px;">
+    <div style="font-size: 0.6rem; color: #00f3ff; margin-bottom: 5px;">SESSION_LOG_V1.0</div>
+    <div id="log-display" style="font-family: 'Courier New', monospace; font-size: 0.55rem; color: #00f3ff; height: 80px; overflow-y: hidden; opacity: 0.8;">
+        > INITIALIZING_LOG...
+    </div>
+</div>
