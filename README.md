@@ -127,5 +127,8 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     [ STATUS: TRANSMISSION_SUCCESSFUL_SYNC_COMPLETE ]
 </div>
 
+<div id="terminal-log">
+    <div class="log-entry">> SYSTEM_INITIALIZED...</div>
+</div>
 
 
