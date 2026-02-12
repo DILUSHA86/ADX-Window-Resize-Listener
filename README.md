@@ -130,5 +130,86 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
 <div id="terminal-log">
     <div class="log-entry">> SYSTEM_INITIALIZED...</div>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX | SENTINEL_DASHBOARD</title>
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/three-globe"></script>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; font-family: 'Courier New', monospace; }
+        #globe-container { position: absolute; top: 0; z-index: 1; }
+        .ui-overlay {
+            position: absolute; top: 20px; left: 20px; z-index: 10;
+            color: #00f3ff; pointer-events: none;
+        }
+        .status-box {
+            border: 1px solid #00f3ff; padding: 15px;
+            background: rgba(0, 243, 255, 0.1); backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
 
+<div class="ui-overlay">
+    <div class="status-box">
+        <div>[ NODE_STATUS: ACTIVE ]</div>
+        <div>[ THREAT_LEVEL: STABLE ]</div>
+        <div id="coords">LAT: -- | LONG: --</div>
+    </div>
+</div>
+
+<div id="globe-container"></div>
+
+<script>
+    // 1. Initialize the Globe
+    const Globe = new ThreeGlobe()
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+        .showAtmosphere(true)
+        .atmosphereColor('#00f3ff')
+        .atmosphereDaylightAlpha(0.1);
+
+    // 2. Setup Three.js Scene
+    const scene = new THREE.Scene();
+    scene.add(Globe);
+    scene.add(new THREE.AmbientLight(0xbbbbbb, 0.3));
+    scene.add(new THREE.DirectionalLight(0xffffff, 0.8));
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('globe-container').appendChild(renderer.domElement);
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 300;
+
+    // 3. Animation Loop
+    (function animate() {
+        Globe.rotation.y += 0.002; // Slow rotation
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    })();
+
+    // 4. Function to Simulate a Security "Ping"
+    function triggerPing(lat, lng, color) {
+        const data = [{ lat, lng, color, size: 20 }];
+        Globe.ringsData(data);
+        Globe.ringColor(() => d => d.color);
+        Globe.ringMaxRadius(5);
+        Globe.ringPropagationSpeed(3);
+        
+        document.getElementById('coords').innerText = `LAT: ${lat.toFixed(2)} | LONG: ${lng.toFixed(2)}`;
+    }
+
+    // Trigger a random threat every 3 seconds
+    setInterval(() => {
+        const randomLat = (Math.random() - 0.5) * 180;
+        const randomLng = (Math.random() - 0.5) * 360;
+        triggerPing(randomLat, randomLng, '#f4d03f');
+    }, 3000);
+
+</script>
+</body>
+</html>
 
