@@ -220,4 +220,19 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </div>
     <div id="coords" style="margin-top: 10px;">LAT: -- | LONG: --</div>
 </div>
-
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xzdadlyy"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
