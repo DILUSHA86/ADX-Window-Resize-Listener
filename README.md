@@ -357,3 +357,8 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     <div id="coords" style="margin-top: 10px;">LAT: -- | LONG: --</div>
 </div>
 <a href="sentinel.html" class="btn">INITIALIZE_SENTINEL_UPLINK</a>
+<div class="control-group" style="margin-top: 15px; border-top: 1px solid rgba(0,243,255,0.3); padding-top: 10px;">
+    <label style="font-size: 0.6rem;">[ SENSITIVITY_THRESHOLD ]</label>
+    <input type="range" id="threshold-slider" min="0" max="150" value="50" style="width: 100%; accent-color: #00f3ff;">
+    <div id="threshold-val" style="font-size: 0.5rem; text-align: right;">GATE: 50</div>
+</div>
