@@ -362,3 +362,7 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     <input type="range" id="threshold-slider" min="0" max="150" value="50" style="width: 100%; accent-color: #00f3ff;">
     <div id="threshold-val" style="font-size: 0.5rem; text-align: right;">GATE: 50</div>
 </div>
+<div id="audio-status" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+    <div id="status-led" style="width: 10px; height: 10px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 5px #ff0000;"></div>
+    <span style="font-size: 0.7rem; color: #00f3ff;">AUDIO_ENGINE: <span id="status-text">STANDBY</span></span>
+</div>
