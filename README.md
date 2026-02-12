@@ -356,3 +356,4 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </div>
     <div id="coords" style="margin-top: 10px;">LAT: -- | LONG: --</div>
 </div>
+<a href="sentinel.html" class="btn">INITIALIZE_SENTINEL_UPLINK</a>
