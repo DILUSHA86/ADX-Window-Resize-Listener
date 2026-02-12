@@ -263,3 +263,6 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
   <!-- your other form fields go here -->
   <button type="submit">Send</button>
 </form>
+<div id="terminal-log">
+    <div class="log-entry">> SYSTEM_INITIALIZED...</div>
+</div>
