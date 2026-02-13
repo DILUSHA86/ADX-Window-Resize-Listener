@@ -1,4 +1,33 @@
-8.8.8.8# ADX-Window-Resize-Listener
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADX-Protocol | Global Portfolio</title>
+    <style>
+        :root { --cyan: #00f3ff; --obsidian: #050505; }
+        body { background: var(--obsidian); color: white; font-family: 'Courier New', monospace; margin: 0; padding: 20px; }
+        header { border-bottom: 1px solid var(--cyan); padding: 20px; text-align: center; }
+        .hero-banner { width: 100%; border: 1px solid var(--cyan); margin: 20px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { border: 1px solid rgba(0, 243, 255, 0.3); padding: 10px; text-align: center; }
+        .card img { width: 100%; }
+        h1, h2 { color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADX-Protocol v1.0.0</h1>
+        <p>Managed by Anuradhapura Sr | Baseline: 1850000 Proton</p>
+    </header>
+    <img src="assets/adx-global-banner.png" class="hero-banner" alt="ADX Banner">
+    <section class="grid">
+        <div class="card"><img src="assets/adx-protocol-logo.png" alt="Logo"><h3>System Core</h3></div>
+        <div class="card"><img src="assets/portfolio-showcase.png" alt="Showcase"><h3>Full Architecture</h3></div>
+        <div class="card"><img src="assets/contributor-card.png" alt="Card"><h3>Community Access</h3></div>
+    </section>
+</body>
+</html>8.8.8.8# ADX-Window-Resize-Listener
 AdxResize Listener
 <script>
     // 1. Scene Setup
@@ -438,3 +467,33 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     <div>> CALCULATING_VECTORS...</div>
     <div id="distance-list"></div>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADX-Protocol | Global Portfolio</title>
+    <style>
+        :root { --cyan: #00f3ff; --obsidian: #050505; }
+        body { background: var(--obsidian); color: white; font-family: 'Courier New', monospace; margin: 0; padding: 20px; }
+        header { border-bottom: 1px solid var(--cyan); padding: 20px; text-align: center; }
+        .hero-banner { width: 100%; border: 1px solid var(--cyan); margin: 20px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { border: 1px solid rgba(0, 243, 255, 0.3); padding: 10px; text-align: center; }
+        .card img { width: 100%; }
+        h1, h2 { color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADX-Protocol v1.0.0</h1>
+        <p>Managed by Anuradhapura Sr | Baseline: 1850000 Proton</p>
+    </header>
+    <img src="assets/adx-global-banner.png" class="hero-banner" alt="ADX Banner">
+    <section class="grid">
+        <div class="card"><img src="assets/adx-protocol-logo.png" alt="Logo"><h3>System Core</h3></div>
+        <div class="card"><img src="assets/portfolio-showcase.png" alt="Showcase"><h3>Full Architecture</h3></div>
+        <div class="card"><img src="assets/contributor-card.png" alt="Card"><h3>Community Access</h3></div>
+    </section>
+</body>
+</html>
