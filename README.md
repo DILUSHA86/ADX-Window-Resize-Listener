@@ -556,3 +556,17 @@ git push origin gh-pages --force
 
 # 3. VERIFICATION:
 echo "🏛️ ADX-PROTOCOL: Deployment Success. World-wide sync active."
+/* OWNER SIGNATURE VERIFICATION */
+const OWNER_DATA = {
+    name: "Anuradhapura Sr",
+    github: "ADX-Protocol-UI",
+    proton: 1850000
+};
+
+function deploySignature() {
+    const footer = document.getElementById('owner-signature');
+    footer.innerHTML = `© 2026 ${OWNER_DATA.name} | Verified GitHub: ${OWNER_DATA.github} | Proton: ${OWNER_DATA.proton}`;
+    console.log("🏛️ SOVEREIGN_SYNC: Owner Verified Worldwide.");
+}
+
+window.onload = deploySignature;
