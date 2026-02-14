@@ -1744,3 +1744,22 @@ jobs:
           folder: dist # The folder where your build sits
           branch: gh-pages
           silent: true # DO NOT BROADCAST IMMEDIATELY
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aero-Cupid | Private Action Lock</title>
+    <style>
+        body { background: #000; color: #00f3ff; font-family: 'Space Mono', monospace; text-align: center; padding: 100px; }
+        .lock-icon { font-size: 50px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="lock-icon">🛰️</div>
+    <h1>AERO-CUPID UI: PRIVATE_ACTION_CONFIRMED</h1>
+    <p>NETWORK_SYNC: 1,850,000 PROTONS ACTIVE</p>
+    <p>OWNER: Anuradhapura Sr | GitHub: ADX-Protocol-UI</p>
+    <hr style="border: 0.5px solid #00f3ff; width: 300px;">
+    <p style="font-size: 10px; color: #555;">SECURITY_CORD: ACTIVE | BROADCAST: OFF</p>
+</body>
+</html>
