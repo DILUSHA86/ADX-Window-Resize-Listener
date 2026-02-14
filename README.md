@@ -519,7 +519,7 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </main>
 
     <footer id="signature-footer">
-        <p id="owner-signature">SIGNATURE_PENDING...</p>
+        <p id="owner-signature">Dilusha Gihan...</p>
     </footer>
     <script src="script.js"></script>
 </body>
