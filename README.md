@@ -497,3 +497,30 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     </section>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX Bio-Neural Design | Sovereign Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="adx-header">
+        <div class="logo">ADX BIO-NEURAL</div>
+        <nav>THE_CORE | NEURAL_MAP | BIO_SPEC | LEGAL_CORD</nav>
+    </header>
+
+    <main id="portfolio-grid">
+        <!-- Vision Page Content -->
+        <section id="vision" class="sovereign-block">
+            <h1>ENGINEERING ORGANIC SOVEREIGNTY</h1>
+            <p>1,850,000 PROTON BASELINE SYNCED.</p>
+        </section>
+    </main>
+
+    <footer id="signature-footer">
+        <p id="owner-signature">SIGNATURE_PENDING...</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
