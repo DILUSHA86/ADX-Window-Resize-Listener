@@ -570,3 +570,9 @@ function deploySignature() {
 }
 
 window.onload = deploySignature;
+<div style="font-family: monospace; color: #00f3ff; background: #050505; padding: 10px; border-left: 3px solid #00f3ff;">
+    <strong>Anuradhapura Sr</strong><br>
+    Founder | ADX Bio-Neural Design<br>
+    <span style="font-size: 10px;">GitHub: ADX-Protocol-UI | Baseline: 1850000 PROTON</span><br>
+    <span style="font-size: 10px; color: #ffaa00;">LEGAL_STATUS: SECURED BY CX-NEURAL CORD</span>
+</div>
