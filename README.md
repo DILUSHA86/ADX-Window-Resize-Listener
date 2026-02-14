@@ -524,3 +524,13 @@ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.inner
     <script src="script.js"></script>
 </body>
 </html>
+# 1. Finalize all assets (HTML/CSS/JS/PDF)
+git add .
+git commit -m "launch(global): adx-protocol v1.0.0 | sovereign neural portfolio | github verified"
+
+# 2. Push to live server (GitHub Pages)
+git push origin master --force
+git push origin gh-pages --force
+
+# 3. VERIFICATION:
+echo "🏛️ ADX-PROTOCOL: Deployment Success. World-wide sync active."
