@@ -78,7 +78,29 @@ AdxResize Listener
 <div class="audio-control" onclick="toggleAudio()">
     [ AUDIO_SENSORS: <span id="audio-status">OFF</span> ]
 </div>
+/* ADX SOVEREIGN STYLING */
+body {
+    background: #050505;
+    color: #00f3ff; /* Blueprint Cyan */
+    font-family: 'Space Mono', monospace;
+    overflow-x: hidden;
+}
 
+#adx-header {
+    border-bottom: 1px solid #00f3ff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sovereign-block {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 10px #00f3ff;
+}
 <audio id="bg-track" loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
 </audio>
