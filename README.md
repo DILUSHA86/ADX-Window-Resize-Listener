@@ -576,3 +576,25 @@ window.onload = deploySignature;
     <span style="font-size: 10px;">GitHub: ADX-Protocol-UI | Baseline: 1850000 PROTON</span><br>
     <span style="font-size: 10px; color: #ffaa00;">LEGAL_STATUS: SECURED BY CX-NEURAL CORD</span>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>⚖️ LEGAL ACTION CORD | ADX PROTOCOL</title>
+    <style>
+        body { background: #000; color: #ff0000; font-family: monospace; padding: 50px; }
+        .shield { border: 2px solid #ff0000; padding: 20px; box-shadow: 0 0 20px #ff0000; }
+        h1 { text-transform: uppercase; letter-spacing: 5px; }
+    </style>
+</head>
+<body>
+    <div class="shield">
+        <h1>Sovereignty Lock Active</h1>
+        <p>WARNING: This repository is protected by the CX-Neural BCI Cord.</p>
+        <p>OWNER: Anuradhapura Sr | PROTON_ID: 1850000</p>
+        <hr>
+        <p>Any unauthorized decryption or access will trigger a Digital Countermeasure 
+           and a direct legal report to Global Cyber-Courts.</p>
+    </div>
+</body>
+</html>
