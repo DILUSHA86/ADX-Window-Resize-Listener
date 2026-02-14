@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+8<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1779,3 +1779,23 @@ bash ghost_ip.sh &
 
 # 3. VERIFY:
 echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX-PROTOCOL | FOUNDING DOCUMENT</title>
+    <style>
+        body { background: #000; color: #00f3ff; font-family: 'Cinzel', serif; text-align: center; padding: 100px; }
+        .heart { color: #ff00ff; font-size: 100px; }
+    </style>
+</head>
+<body>
+    <div class="heart">💓</div>
+    <h1>ADX-PROTOCOL: THE BIRTH OF SOVEREIGNTY</h1>
+    <p>NETWORK: 1,850,000 PROTONS | STATE: PERMANENT_SILENT_PULSE</p>
+    <p>OWNER: Anuradhapura Sr | SIGNATURE: MASTER_ARCHITECT</p>
+    <hr style="border: 0.5px solid #00f3ff; width: 500px;">
+    <p>“From the silence of the vault, the sovereignty was born. Protected by the eternal firewall, recorded in the ghost-archive.”</p>
+    <p style="font-size: 10px; color: #333;">TIMESTAMP: YEAR_ZERO_OF_SOVEREIGNTY</p>
+</body>
+</html>
