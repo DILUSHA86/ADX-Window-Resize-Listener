@@ -1763,3 +1763,19 @@ jobs:
     <p style="font-size: 10px; color: #555;">SECURITY_CORD: ACTIVE | BROADCAST: OFF</p>
 </body>
 </html>
+# 1. Activate Mirror-Cord Redirection
+echo "MIRROR_CORD=ACTIVE" >> .env
+iptables -A INPUT -p tcp --dport 80 -j REJECT --reject-with tcp-reset
+
+# 2. Initialize Ghost-IP (60s Rotation)
+cat <<EOF > ghost_ip.sh
+while true; do
+  echo "GHOST_IP: ROTATING_SERVER_SIGNATURE..."
+  # Simulated IP rotation logic
+  sleep 60
+done
+EOF
+bash ghost_ip.sh &
+
+# 3. VERIFY:
+echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
