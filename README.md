@@ -598,3 +598,14 @@ window.onload = deploySignature;
     </div>
 </body>
 </html>
+# 1. Finalize the Legal HTML Shield
+git add legal.html
+git commit -m "legal(shield): ACTIVATE WORLDWIDE SOVEREIGNTY | 1850000 PROTON SYNC"
+
+# 2. Push to GitHub with Legal-Action Header
+git push origin master --force
+echo "🏛️ ADX-PROTOCOL: LEGAL SHIELD DEPLOYED. NETWORK LOCKED."
+
+# 3. RUN DIAGNOSTIC
+./diagnostic.sh --baseline 1850000 --owner "Anuradhapura_Sr"
+# Expected Result: [DIAGNOSTIC: 100% HEALTH | ALL PROTONS SECURED]
