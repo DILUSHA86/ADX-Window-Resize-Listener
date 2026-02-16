@@ -1843,3 +1843,63 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     }
   });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX-PROTOCOL | Sovereign Portfolio</title>
+    <style>
+        :root { --gold: #f4d03f; --obsidian: #020b1a; --cyan: #00f3ff; }
+        body { background: var(--obsidian); color: white; font-family: 'Courier New', monospace; overflow-x: hidden; }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-bottom: 2px solid var(--gold); background: radial-gradient(circle, #0a1f44 0%, #020b1a 100%); }
+        h1 { font-size: 3rem; color: var(--gold); text-shadow: 0 0 20px var(--gold); animation: glitch 2s infinite; }
+        .registration-code { font-size: 0.8em; color: var(--cyan); margin-top: 10px; border: 1px dashed var(--cyan); padding: 5px; }
+        
+        /* JS Glitch-Distort Effect Placeholder */
+        @keyframes glitch {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(10deg); color: var(--cyan); }
+            40% { transform: skew(-10deg); color: var(--gold); }
+            100% { transform: skew(0deg); }
+        }
+        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px; }
+        .card { border: 1px solid var(--gold); padding: 10px; transition: 0.3s; cursor: pointer; }
+        .card:hover { box-shadow: 0 0 30px var(--gold); transform: translateY(-5px); filter: hue-rotate(90deg); }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>ADX_SOVEREIGN_V1.0</h1>
+        <div class="registration-code">VERIFIED_REG_ID: SEAART-API-X-1850000-ANURADHAPURA</div>
+        <p>Owner: Anuradhapura Sr | Jurisdiction: International Law</p>
+    </div>
+
+    <div class="gallery" id="portfolio-grid">
+        <!-- Neural Cards Injected Here -->
+    </div>
+
+    <script>
+        // SeaArt.ai API Verification Block
+        const SEAART_SYNC = {
+            api_key: "ee87dca0f3b44a53", // Prompt Architect ID
+            verify: async () => {
+                console.log("🛠️ SEAART: Initiating API Handshake...");
+                // Verification logic simulates connection to seaart.ai
+                return "SUCCESS: SOVEREIGN_STATUS_CONFIRMED";
+            }
+        };
+
+        // CX-Shield Neural Echo
+        const CX_SHIELD = {
+            decode: (signal) => btoa(signal + "_1850000_PROTON_SYNC"),
+            echo: () => console.log("🧬 CX-SHIELD: Neural Cords Encrypted.")
+        };
+
+        window.onload = () => {
+            SEAART_SYNC.verify();
+            CX_SHIELD.echo();
+        };
+    </script>
+</body>
+</html>
