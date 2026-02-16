@@ -1799,3 +1799,23 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     <p style="font-size: 10px; color: #333;">TIMESTAMP: YEAR_ZERO_OF_SOVEREIGNTY</p>
 </body>
 </html>
+<!-- KARMA_CODEX: GLOBAL_INJECTION_V1.0 -->
+<script id="karma-universal-cord">
+  const KARMA_CODEX = {
+    integrity: "MANDATORY",
+    target: ["Humanity", "Nature"],
+    engine: "1,850,000_Protons",
+    action: () => {
+      if (document.soulSync !== "TRUE") {
+          document.body.style.filter = "grayscale(100%) blur(10px)";
+          console.error("⚖️ [FREEZE]: Soul-Sync Dodge detected. #KarmaCodex");
+      } else {
+          console.log("🌿 [FLOW]: Pure Flow initialized. Reforestation active.");
+          spawnBelerickCore();
+      }
+    }
+  };
+</script>
+
+<!-- GITHUB_SYNC_COMMAND -->
+<!-- curl -X PUSH -H "Karma: Lived-Truth" See Above -->
