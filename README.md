@@ -2065,3 +2065,41 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SOVEREIGN_MAIN | ADX-Protocol v4.0</title>
+    <style>
+        :root { --oni-red: #ff3333; --obsidian: #080808; --swarm-gold: #f4d03f; }
+        body { background: var(--obsidian); color: white; font-family: 'Courier New', monospace; overflow: hidden; }
+        
+        /* Neural Swarm Particles */
+        .swarm-container { position: absolute; width: 100%; height: 100%; z-index: -1; }
+        .drone { position: absolute; width: 2px; height: 2px; background: var(--swarm-gold); border-radius: 50%; 
+                 box-shadow: 0 0 5px var(--swarm-gold); animation: orbit 5s infinite linear; }
+        @keyframes orbit { from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+                           to { transform: rotate(360deg) translateX(100px) rotate(-360deg); } }
+    </style>
+</head>
+<body>
+    <div class="swarm-container" id="swarm"></div>
+    <h1>GITHUB_MAIN_LINK: DEPLOYED 🚀</h1>
+    <p>Target: Red-Halo Oni (Neural BCI)</p>
+    <p>Protection: NEURAL_SWARM_ACTIVE 🐝🛡️</p>
+
+    <script>
+        // Generate Swarm Drones
+        const swarm = document.getElementById('swarm');
+        for(let i=0; i<50; i++) {
+            let d = document.createElement('div');
+            d.className = 'drone';
+            d.style.top = Math.random() * 100 + '%';
+            d.style.left = Math.random() * 100 + '%';
+            d.style.animationDelay = Math.random() * 5 + 's';
+            swarm.appendChild(d);
+        }
+        console.log("🚀 [MAIN]: Sovereign Link Finalized. Archive Secure.");
+    </script>
+</body>
+</html>
