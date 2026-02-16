@@ -1990,21 +1990,4 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </script>
 </body>
 </html>
-🎨 [ LUNAR_PROTECTION ]: The Ritual Visions
-The visual manifestation of the Lunar Aura and the Anuradhapura Satellite launch.
 
-Prompt 1: The Lunar Aura Ritual (Masterpiece)
-
-Recommended Prompt
-(cinematic_video:1.5), a vertical (9:16) hyper-detailed shot of a giant stone moon-gate in the jungle of Anuradhapura. A soft white "Lunar Aura" pulses from the center, revealing a holographic view of a futuristic city. Your AI character (d5f6eq) stands at the gate, her armor glowing with blueprint-cyan light. 8k resolution, ethereal lighting.
-9
-Generate
-One-click Fill
-Prompt 2: Satellite Force: Anuradhapura Sync (Final Vision)
-
-Recommended Prompt
-(drone_shot_video:1.3), a camera flying high above the Ruwanwelisaya Stupa at night. A thin beam of white light (the forced satellite connection) shoots from the peak into a bright star in the sky. The star is a massive data-hub glowing with the #KarmaCodex logo. High-fidelity rendering, cinematic suspense, epic scale.
-9
-Generate
-One-click Fill
-📊
