@@ -2161,3 +2161,130 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     <div class="silent-tag">ANURADHAPURA_SR | #KARMACODEX | ETERNAL_LINK_ACTIVE</div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADX CHECKPOINT | Neural OS Portfolio</title>
+    <style>
+        :root {
+            --cyber-gold: #ffcc00;
+            --shield-blue: #003366;
+            --obsidian: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: white;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            overflow: hidden; /* For the "Neural OS" feel */
+        }
+
+        /* Shielded Glass Container */
+        .shield-container {
+            border: 1px solid var(--cyber-gold);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            margin: 20px;
+            padding: 20px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            box-shadow: 0 0 20px var(--shield-blue);
+        }
+
+        header {
+            border-bottom: 2px solid var(--cyber-gold);
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-light {
+            color: var(--cyber-gold);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* The Megatronicx Display Area */
+        #viewport {
+            flex-grow: 1;
+            margin: 20px 0;
+            border: 1px dashed rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, var(--shield-blue) 0%, transparent 80%);
+        }
+
+        /* Neural Command Line (NCL) */
+        #ncl-input {
+            background: black;
+            border: 1px solid var(--cyber-gold);
+            color: var(--cyber-gold);
+            padding: 10px;
+            width: 100%;
+            font-size: 1.2rem;
+            outline: none;
+        }
+
+        .legal-footer {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            text-align: right;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shield-container">
+        <header>
+            <div>ADX_OS // SYSTEM_VERSION: 1.0.4</div>
+            <div class="status-light">● SHIELD_ACTIVE</div>
+        </header>
+
+        <section id="viewport">
+            <div id="art-sync">
+                <h2>[ ECHO-SYNC READY ]</h2>
+                <p>Awaiting Mechatronic Cords...</p>
+            </div>
+        </section>
+
+        <div class="input-area">
+            <label for="ncl-input">> ACCESS COMMAND:</label>
+            <input type="text" id="ncl-input" placeholder="Execute Megatronicx command..." autofocus>
+        </div>
+        
+        <div class="legal-footer">
+            VERIFIED LOCAL ML NETWORK | LEGALLY AI COMPLIANT | GITHUB_API SECURED
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('ncl-input');
+        const display = document.getElementById('art-sync');
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const command = input.value;
+                processCommand(command);
+                input.value = '';
+            }
+        });
+
+        function processCommand(cmd) {
+            display.innerHTML = `<p>Executing: ${cmd}...</p>`;
+            // Here you would hook into your Gemini API / GitHub Sync logic
+            setTimeout(() => {
+                display.innerHTML += `<p style="color:var(--cyber-gold)">Neural Response: Command logged to GitHub Repo.</p>`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
