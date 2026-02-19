@@ -1,4 +1,4 @@
-7u3u8<!DOCTYPE html>
+67u3u8<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2585,3 +2585,95 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </script>
 </body>
 </html>
+<style>
+    :root {
+        --neon-cyan: #00f2ff;
+        --warning-red: #ff004d;
+        --bg-dark: #050508;
+    }
+
+    body { 
+        background: var(--bg-dark); 
+        color: white; 
+        font-family: 'Segoe UI', 'San Francisco', sans-serif; 
+        margin: 0; 
+        display: flex; 
+        flex-direction: column; 
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Top Monitor Section */
+    #monitor-section { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        background: radial-gradient(circle at center, #10101a 0%, #050508 100%);
+        border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+        padding: 20px;
+    }
+
+    /* The 'Neural' Heartbeat */
+    .pulse-core { 
+        width: 120px; 
+        height: 120px; 
+        border-radius: 50%; 
+        background: rgba(0, 242, 255, 0.05); 
+        border: 2px solid var(--neon-cyan);
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.2), inset 0 0 20px rgba(0, 242, 255, 0.1);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Inner Neural Node */
+    .pulse-core::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        background: var(--neon-cyan);
+        border-radius: 50%;
+        filter: blur(2px);
+        animation: heart 1.5s infinite;
+    }
+
+    @keyframes heart {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.5); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    #status { 
+        margin-top: 25px;
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        color: var(--neon-cyan);
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    /* Bottom SeaArt Section */
+    #agent-section { 
+        flex: 2; 
+        width: 100%; 
+        position: relative;
+        background: #000;
+    }
+
+    iframe { 
+        width: 100%; 
+        height: 100%; 
+        border: none;
+        opacity: 0.9;
+    }
+
+    /* Anomaly State */
+    .anomaly {
+        border-color: var(--warning-red) !important;
+        box-shadow: 0 0 50px rgba(255, 0, 77, 0.5) !important;
+        background: rgba(255, 0, 77, 0.1) !important;
+    }
+</style>
