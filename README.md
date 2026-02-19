@@ -2508,4 +2508,40 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </div>
 </body>
 </html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX_OS_A05 | DIGITAL_ARCHIVE</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; padding: 40px; }
+        .repo-header { border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+        .badge { display: inline-block; padding: 5px 10px; border-radius: 20px; font-size: 0.8em; margin-right: 10px; }
+        .status-secure { background: #e3b341; color: #0d1117; font-weight: bold; }
+        .license-mit { background: #238636; color: white; }
+        .readme { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 20px; margin-top: 20px; }
+        h2 { color: #58a6ff; }
+        .toggle-btn { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 10px 15px; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="repo-header">
+        <h1>🏛️ ADX_OS_A05 / DIGITAL_ARCHIVE</h1>
+        <span class="badge status-secure">STATUS: SECURE_ARCHIVE</span>
+        <span class="badge license-mit">LICENSE: MIT</span>
+    </div>
+    
+    <div class="readme">
+        <h2>🛡️ PROJECT OVERVIEW</h2>
+        <p>Conceptual interface for high-compliance digital art: <b>"Duel on the Chessboard"</b>.</p>
+        
+        <h2>🔒 SECURITY PROTOCOLS</h2>
+        <ul>
+            <li><b>CSP Active:</b> Unauthorized script prevention.</li>
+            <li><b>Vault Mode:</b> Read-Only access enabled.</li>
+        </ul>
+        
+        <button class="toggle-btn" onclick="alert('Strategy: White Logic (Analytical Defense)')">STRATEGY_TOGGLE</button>
+    </div>
+</body>
+</html>
