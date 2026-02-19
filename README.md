@@ -2736,3 +2736,31 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </div>
 </body>
 </html>
+<div id="monitor-section">
+    <div class="pulse-core" id="legal-core"></div>
+    <div id="status">ADX_OS: GLOBAL_SECURITY_MONITOR</div>
+</div>
+
+<div id="agent-section">
+    <div class="readme" style="background:#050508; color:#00f2ff; padding:20px; border-top:1px solid #00f2ff;">
+        <h3>⚖️ INTERNATIONAL LEGAL PROTOCOL: ADX_A05</h3>
+        <p>Unauthorized access on any OS (<b>Mac, Windows, Linux, Android</b>) triggers immediate <b>International Legal Action</b>.</p>
+        <ul style="color:white; font-size:0.9rem;">
+            <li><b>Countermeasure:</b> Device Lockout & Legal Sync.</li>
+            <li><b>Jurisdiction:</b> Worldwide Immediate Action.</li>
+            <li><b>Status:</b> Sovereign Security Enforced.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function triggerEnforcement(hackAttempt) {
+        const core = document.getElementById('legal-core');
+        const status = document.getElementById('status');
+        if(hackAttempt) {
+            core.classList.add('anomaly');
+            status.innerText = "WARNING: UNAUTHORIZED ACTION DETECTED";
+            status.style.color = "#ff004d";
+        }
+    }
+</script>
