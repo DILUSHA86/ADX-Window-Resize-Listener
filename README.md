@@ -2695,3 +2695,44 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255,0,77,0.5);
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADX_OS_A05 | CALIBRATED_ARCHIVE</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; padding: 40px; }
+        .repo-header { border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+        .badge { display: inline-block; padding: 5px 10px; border-radius: 20px; font-size: 0.8em; margin-right: 10px; }
+        .status-optimal { background: #238636; color: white; font-weight: bold; }
+        .badge-jitter { background: #58a6ff; color: #0d1117; }
+        .readme { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 20px; margin-top: 20px; }
+        h2 { color: #58a6ff; }
+        .code-block { background: #161b22; padding: 10px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.9em; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="repo-header">
+        <h1>🏛️ ADX_OS_A05 / CALIBRATED_ARCHIVE</h1>
+        <span class="badge status-optimal">STATUS: OPTIMAL_STABILITY</span>
+        <span class="badge badge-jitter">JITTER: PURGED_AND_SEALED</span>
+    </div>
+    
+    <div class="readme">
+        <h2>🛡️ CALIBRATION REPORT</h2>
+        <p>The system has been successfully reset to <b>"Sovereign Optimal"</b> after a maximum jitter amplification test.</p>
+        
+        <h2>🚨 ANOMALY PROTOCOL</h2>
+        <div class="code-block">
+            triggerAnomaly(false); // Forced reset initialized.<br>
+            seal_trigger(); // Trigger access locked.
+        </div>
+        
+        <h2>🔒 ARCHIVE STATE</h2>
+        <ul>
+            <li><b>Vault Mode:</b> Read-Only access.</li>
+            <li><b>Protons:</b> 1,850,000 units calibrated.</li>
+        </ul>
+    </div>
+</body>
+</html>
