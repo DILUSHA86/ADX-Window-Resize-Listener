@@ -2477,4 +2477,35 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #0a0a0c; color: #00f2ff; font-family: 'Courier New', monospace; overflow: hidden; }
+        .core {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #00f2ff33, #000);
+            box-shadow: 0 0 50px #00f2ff;
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        /* The pulse speeds up if 'EMP' is detected */
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+        }
+        .status-text { text-align: center; margin-top: 20px; font-size: 0.8rem; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <div class="core"></div>
+    <div style="position: absolute; bottom: 10%; width: 100%;">
+        <div class="status-text">SYSTEM CORE: MONITORING INTERFERENCE...</div>
+        <div id="emf-level" class="status-text">CURRENT PULSE: 0.02 mG</div>
+    </div>
+</body>
+</html>
 
