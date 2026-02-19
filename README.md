@@ -2677,3 +2677,21 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
         background: rgba(255, 0, 77, 0.1) !important;
     }
 </style>
+/* Anomaly State Logic */
+#core.anomaly {
+    background-color: #ff004d ! from;
+    box-shadow: 0 0 150px #ff004d;
+    animation: jitter 0.1s infinite;
+}
+
+@keyframes jitter {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(2px, -2px); }
+    50% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+#status {
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255,0,77,0.5);
+}
