@@ -2851,3 +2851,81 @@ echo "🏛️ ADX-PROTOCOL: The work is done. Silence is Sovereign."
     
     <h2>📜 LICENSE: MIT SOVEREIGN GOLD</h2>
 </div>
+<div class="nav-container">
+  <div class="nav-node" id="node-av-01">
+    <div class="reticle"></div>
+    <div class="label">NAV-01 // AVIONICS_STACK</div>
+    <div class="telemetry">PROB_DIST: 0.82 // LATENCY: 0.04ms</div>
+    
+    <div class="sub-modules">
+      <div class="sub-node">MAIN_COMP</div>
+      <div class="sub-node">STAR_TRK</div>
+      <div class="sub-node">REACT_WHL</div>
+    </div>
+  </div>
+</div>
+
+<style>
+:root {
+  --bg: #000814;
+  --blueprint-blue: #00F2FF;
+  --faint-blue: rgba(0, 242, 255, 0.1);
+  --font-mono: 'JetBrains Mono', 'Roboto Mono', monospace;
+}
+
+body { background: var(--bg); color: var(--blueprint-blue); font-family: var(--font-mono); }
+
+.nav-node {
+  position: relative;
+  width: 280px;
+  padding: 12px;
+  border: 1px solid var(--blueprint-blue);
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.19, 1, 0.22, 1); /* Direct Fire */
+}
+
+.nav-node:hover {
+  background: var(--faint-blue);
+  box-shadow: 0 0 15px var(--faint-blue);
+}
+
+.label { font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; }
+
+.telemetry {
+  font-size: 0.55rem;
+  margin-top: 4px;
+  opacity: 0.6;
+}
+
+/* The Exploded View Logic */
+.sub-modules {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  border-top: 0px solid var(--blueprint-blue);
+  margin-top: 0;
+  transition: all 0.2s steps(4); /* Mechanical/Stepped transition */
+}
+
+.nav-node:hover .sub-modules {
+  height: auto;
+  opacity: 1;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--blueprint-blue);
+}
+
+.sub-node {
+  font-size: 0.7rem;
+  padding: 4px 0;
+  padding-left: 15px;
+  position: relative;
+}
+
+.sub-node::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  opacity: 0.5;
+}
+</style>
