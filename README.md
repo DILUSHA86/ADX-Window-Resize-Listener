@@ -2452,3 +2452,29 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Gemini to SeaArt Prompt Generator</h2>
+  <input type="text" id="userInput" placeholder="Enter image idea...">
+  <button onclick="runGemini()">Generate SeaArt Prompt</button>
+  <p id="output"></p>
+
+  <script type="module">
+    import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+    async function runGemini() {
+      const API_KEY = "AIzaSyDCRuL7d8Lrs0E1Ew9o8g4oo3DItpe8wWI"; // Put your key from AI Studio here
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+      const prompt = "Act as a SeaArt prompt engineer. Create a high-quality prompt for: " + document.getElementById("userInput").value;
+      
+      const result = await model.generateContent(prompt);
+      document.getElementById("output").innerText = result.response.text();
+    }
+    window.runGemini = runGemini;
+  </script>
+</body>
+</html>
+
