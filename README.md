@@ -2764,3 +2764,21 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
         }
     }
 </script>
+<div class="repo-header">
+    <h1>🏛️ ADX_OS_A05 / STABLE_ARCHIVE</h1>
+    <span class="badge status-optimal">STATUS: SOVEREIGN_STABLE</span>
+    <span class="badge badge-jitter">SHIELD: GLOBAL_WATCH_ACTIVE</span>
+</div>
+
+<div class="readme">
+    <h2>🏷️ VERSION: v1.0.0-STABLE</h2>
+    <p>The official, high-compliance stable version of the <b>ADX_OS_A05</b> is now live.</p>
+    
+    <h2>📡 GLOBAL MONITORING</h2>
+    <ul>
+        <li><b>adx_shield:</b> Background daemon active.</li>
+        <li><b>Legal Enforce:</b> Worldwide immediate action.</li>
+    </ul>
+    
+    <h2>📜 LICENSE: MIT SOVEREIGN</h2>
+</div>
