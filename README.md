@@ -2545,3 +2545,43 @@ echo "🏛️ ADX-PROTOCOL: Mirror Cord Active. Ghost-IP Initialized."
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neural Security Dashboard</title>
+    <style>
+        body { background: #050505; color: #00f2ff; font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        #monitor-section { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 2px solid #1a1a1a; }
+        #agent-section { flex: 2; width: 100%; background: #000; }
+        .pulse-core { width: 80px; height: 80px; border-radius: 50%; background: #00f2ff22; box-shadow: 0 0 20px #00f2ff; transition: 0.3s; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <div id="monitor-section">
+        <div id="core" class="pulse-core"></div>
+        <p id="status">ENV STATUS: OPTIMAL</p>
+    </div>
+
+    <div id="agent-section">
+        <iframe src="YOUR_SEAART_AGENT_URL_HERE"></iframe>
+    </div>
+
+    <script>
+        // Simple Logic to turn the UI Red if a 'spike' is simulated
+        function simulateSpike(isHigh) {
+            const core = document.getElementById('core');
+            const status = document.getElementById('status');
+            if(isHigh) {
+                core.style.boxShadow = "0 0 40px #ff004d";
+                core.style.backgroundColor = "#ff004d44";
+                status.innerText = "ENV STATUS: INTERFERENCE DETECTED";
+            }
+        }
+        // Example: Trigger spike when page loads to test visuals
+        setTimeout(() => simulateSpike(true), 2000);
+    </script>
+</body>
+</html>
