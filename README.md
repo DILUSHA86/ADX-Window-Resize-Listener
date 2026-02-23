@@ -3410,3 +3410,315 @@ body { background: var(--bg); color: var(--blueprint-blue); font-family: var(--f
    </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Poki Game Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .countdown-display {
+            margin: 30px 0;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-number.pulse {
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .countdown-text {
+            color: #555;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 1s linear;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #555;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .status-message.show {
+            opacity: 1;
+        }
+
+        .status-cancelled {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .status-redirecting {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .countdown-number {
+                font-size: 3rem;
+            }
+
+            .countdown-text {
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirecting to Poki Game Website</h1>
+
+        <div class="countdown-display">
+            <span class="countdown-number" id="countdown">5</span>
+            <p class="countdown-text" id="countdownText">Redirecting in 5 seconds</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 100%"></div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" id="redirectBtn" onclick="redirectNow()">Redirect Now</button>
+            <button class="btn-secondary" id="cancelBtn" onclick="cancelRedirect()">Cancel Redirect</button>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <script>
+        let timeLeft = 5;
+        let countdownInterval;
+        let isCancelled = false;
+        const totalTime = 5;
+
+        function updateDisplay() {
+            const countdownEl = document.getElementById('countdown');
+            const countdownTextEl = document.getElementById('countdownText');
+            const progressBar = document.getElementById('progressBar');
+
+            countdownEl.textContent = timeLeft;
+            countdownTextEl.textContent = `Redirecting in ${timeLeft} second${timeLeft !== 1 ? 's' : ''}`;
+
+            // Update progress bar
+            const progressPercentage = (timeLeft / totalTime) * 100;
+            progressBar.style.width = progressPercentage + '%';
+
+            // Add pulse animation
+            countdownEl.classList.remove('pulse');
+            void countdownEl.offsetWidth; // Trigger reflow
+            countdownEl.classList.add('pulse');
+        }
+
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateDisplay();
+
+                    if (timeLeft === 0) {
+                        clearInterval(countdownInterval);
+                        if (!isCancelled) {
+                            window.location.href = 'https://poki.com';
+                        }
+                    }
+                }
+            }, 1000);
+        }
+
+        function redirectNow() {
+            clearInterval(countdownInterval);
+            showStatus('Redirecting now...', 'status-redirecting');
+            setTimeout(() => {
+                window.location.href = 'https://poki.com';
+            }, 500);
+        }
+
+        function cancelRedirect() {
+            isCancelled = true;
+            clearInterval(countdownInterval);
+
+            // Update UI
+            document.getElementById('countdown').textContent = '✓';
+            document.getElementById('countdown').style.color = '#28a745';
+            document.getElementById('countdownText').textContent = 'Redirect cancelled';
+            document.getElementById('progressBar').style.width = '0%';
+
+            // Disable buttons
+            document.getElementById('redirectBtn').disabled = true;
+            document.getElementById('redirectBtn').style.opacity = '0.5';
+            document.getElementById('redirectBtn').style.cursor = 'not-allowed';
+            document.getElementById('cancelBtn').disabled = true;
+            document.getElementById('cancelBtn').style.opacity = '0.5';
+            document.getElementById('cancelBtn').style.cursor = 'not-allowed';
+
+            showStatus('Redirect has been cancelled. You will not be redirected to Poki.', 'status-cancelled');
+        }
+
+        function showStatus(message, className) {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.textContent = message;
+            statusEl.className = 'status-message ' + className + ' show';
+        }
+
+        // Start countdown on page load
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>
