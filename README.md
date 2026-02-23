@@ -6817,3 +6817,445 @@ body { background: var(--bg); color: var(--blueprint-blue); font-family: var(--f
    </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Deadly Sins Personality Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .sin-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .progress-bar-fill {
+            transition: width 0.5s ease-in-out;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5); 
+        }
+    </style>
+</head>
+<body class="sin-gradient min-h-screen text-white overflow-x-hidden">
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center justify-center relative">
+        
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-10 right-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <!-- App Content -->
+        <div id="app" class="relative z-10 w-full max-w-3xl">
+            <!-- Content injected via JS -->
+        </div>
+
+    </div>
+
+    <script>
+        // --- Data & Configuration ---
+        const sins = {
+            pride: { name: "Pride", color: "#FFD700", desc: "Excessive belief in one's own abilities." }, // Gold
+            greed: { name: "Greed", color: "#32CD32", desc: "A rapacious desire for material wealth." }, // LimeGreen
+            lust: { name: "Lust", color: "#FF1493", desc: "An intense craving for physical pleasures." }, // DeepPink
+            envy: { name: "Envy", color: "#00CED1", desc: "The desire for others' traits, status, or situation." }, // DarkTurquoise
+            gluttony: { name: "Gluttony", color: "#FF8C00", desc: "The over-indulgence and over-consumption of anything." }, // DarkOrange
+            wrath: { name: "Wrath", color: "#DC143C", desc: "Uncontrolled feelings of anger, rage, and hatred." }, // Crimson
+            sloth: { name: "Sloth", color: "#9370DB", desc: "The avoidance of physical or spiritual work." }  // MediumPurple
+        };
+
+        const questions = [
+            {
+                text: "You see a rival struggling with a task you mastered years ago. What is your first thought?",
+                answers: [
+                    { text: "Finally, a chance to show them how it's really done.", type: "pride" },
+                    { text: "I could help, but I have my own priorities.", type: "sloth" },
+                    { text: "I wish I was back in the spotlight instead of them.", type: "envy" }
+                ]
+            },
+            {
+                text: "A limited edition item goes on sale. You already have one, but the resale value is high.",
+                answers: [
+                    { text: "Buy them all. It's just business.", type: "greed" },
+                    { text: "Buy one extra to flex on my friends.", type: "pride" },
+                    { text: "I don't need it, I'll pass.", type: "sloth" }
+                ]
+            },
+            {
+                text: "You are stuck in traffic and someone cuts you off dangerously.",
+                answers: [
+                    { text: "Honk, yell, and plot revenge.", type: "wrath" },
+                    { text: "Check if they are attractive.", type: "lust" },
+                    { text: "Sigh and accept the delay.", type: "sloth" }
+                ]
+            },
+            {
+                text: "At an all-you-can-eat buffet, your strategy is:",
+                answers: [
+                    { text: "Eat until I physically cannot move.", type: "gluttony" },
+                    { text: "Only eat the most expensive items to get my money's worth.", type: "greed" },
+                    { text: "Eat a normal amount, I have self-respect.", type: "pride" }
+                ]
+            },
+            {
+                text: "Your best friend just won a massive award that you were also competing for.",
+                answers: [
+                    { text: "Smile on the outside, burn on the inside.", type: "envy" },
+                    { text: "They didn't deserve it, I worked harder.", type: "wrath" },
+                    { text: "I am happy for them, but I will win next time.", type: "pride" }
+                ]
+            },
+            {
+                text: "It's Friday night. What are you doing?",
+                answers: [
+                    { text: "Hitting the clubs looking for a connection.", type: "lust" },
+                    { text: "Sleeping. Socializing is exhausting.", type: "sloth" },
+                    { text: "Networking with influential people.", type: "greed" }
+                ]
+            },
+            {
+                text: "A coworker makes a small mistake that makes you look better by comparison.",
+                answers: [
+                    { text: "Let them fail. It benefits me.", type: "envy" },
+                    { text: "Correct them loudly in front of everyone.", type: "pride" },
+                    { text: "Help them fix it quietly.", type: null } // Neutral/Good option, low sin
+                ]
+            },
+            {
+                text: "You find a wallet on the street with cash and no ID.",
+                answers: [
+                    { text: "Finders keepers.", type: "greed" },
+                    { text: "Leave it. Someone else will deal with it.", type: "sloth" },
+                    { text: "Turn it in to the police.", type: null }
+                ]
+            },
+            {
+                text: "Someone insults your intelligence in a debate.",
+                answers: [
+                    { text: "Unleash a verbal tirade.", type: "wrath" },
+                    { text: "Use big words to confuse them and prove superiority.", type: "pride" },
+                    { text: "Ignore them, they aren't worth the energy.", type: "sloth" }
+                ]
+            },
+            {
+                text: "You have a free afternoon. What do you consume?",
+                answers: [
+                    { text: "A whole series and a family-sized bag of chips.", type: "gluttony" },
+                    { text: "Romance novels or visual media.", type: "lust" },
+                    { text: "Self-help books to improve my mind.", type: "pride" }
+                ]
+            },
+            {
+                text: "Your neighbor buys a brand new luxury car.",
+                answers: [
+                    { text: "I hate them. I want that car.", type: "envy" },
+                    { text: "I will buy a better one next week.", type: "greed" },
+                    { text: "Good for them, I like my current car.", type: null }
+                ]
+            },
+            {
+                text: "How do you handle a long to-do list?",
+                answers: [
+                    { text: "Delegate it all to others.", type: "sloth" },
+                    { text: "Do it perfectly or not at all.", type: "pride" },
+                    { text: "Tackle it aggressively to get it out of the way.", type: "wrath" }
+                ]
+            }
+        ];
+
+        // --- State Management ---
+        let currentState = {
+            step: 'welcome', // welcome, quiz, result
+            currentQuestionIndex: 0,
+            scores: { pride: 0, greed: 0, lust: 0, envy: 0, gluttony: 0, wrath: 0, sloth: 0 }
+        };
+
+        const app = document.getElementById('app');
+
+        // --- Render Functions ---
+
+        function render() {
+            app.innerHTML = '';
+            if (currentState.step === 'welcome') {
+                renderWelcome();
+            } else if (currentState.step === 'quiz') {
+                renderQuiz();
+            } else if (currentState.step === 'result') {
+                renderResult();
+            }
+        }
+
+        function renderWelcome() {
+            const container = document.createElement('div');
+            container.className = "glass-panel rounded-2xl p-8 md:p-12 text-center fade-in flex flex-col items-center";
+            
+            const title = document.createElement('h1');
+            title.className = "text-4xl md:text-6xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white drop-shadow-lg";
+            title.innerText = "Seven Deadly Sins";
+            
+            const subtitle = document.createElement('h2');
+            subtitle.className = "text-2xl md:text-3xl font-bold mb-8 text-blue-100";
+            subtitle.innerText = "Personality Test";
+
+            const desc = document.createElement('p');
+            desc.className = "text-lg text-blue-100 mb-10 max-w-lg leading-relaxed";
+            desc.innerText = "Dare to look into the mirror of your soul? Discover which of the ancient vices resonates most with your personality. This test analyzes your deepest desires and reactions.";
+
+            const btn = document.createElement('button');
+            btn.className = "bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg btn-hover border border-blue-400/30";
+            btn.innerText = "Start Test";
+            btn.onclick = startQuiz;
+
+            container.append(title, subtitle, desc, btn);
+            app.appendChild(container);
+        }
+
+        function renderQuiz() {
+            const q = questions[currentState.currentQuestionIndex];
+            const progress = ((currentState.currentQuestionIndex) / questions.length) * 100;
+
+            const container = document.createElement('div');
+            container.className = "glass-panel rounded-2xl p-6 md:p-10 fade-in w-full";
+
+            // Progress Bar
+            const progressContainer = document.createElement('div');
+            progressContainer.className = "w-full bg-gray-700 rounded-full h-2.5 mb-8";
+            const progressBar = document.createElement('div');
+            progressBar.className = "bg-blue-400 h-2.5 rounded-full progress-bar-fill";
+            progressBar.style.width = `${progress}%`;
+            progressContainer.appendChild(progressBar);
+
+            // Question Counter
+            const counter = document.createElement('div');
+            counter.className = "text-right text-sm text-blue-300 mb-2 font-mono";
+            counter.innerText = `Question ${currentState.currentQuestionIndex + 1} / ${questions.length}`;
+
+            // Question Text
+            const qText = document.createElement('h3');
+            qText.className = "text-2xl md:text-3xl font-bold mb-8 text-white leading-snug min-h-[80px] flex items-center";
+            qText.innerText = q.text;
+
+            // Answers Grid
+            const grid = document.createElement('div');
+            grid.className = "grid grid-cols-1 gap-4";
+
+            q.answers.forEach(ans => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-5 rounded-xl bg-white/5 hover:bg-white/20 border border-white/10 transition-all duration-200 flex items-center group";
+                
+                const dot = document.createElement('div');
+                dot.className = "w-4 h-4 rounded-full border-2 border-blue-300 mr-4 group-hover:bg-blue-400 transition-colors";
+                
+                const text = document.createElement('span');
+                text.className = "text-lg font-medium text-blue-50";
+                text.innerText = ans.text;
+
+                btn.append(dot, text);
+                btn.onclick = () => handleAnswer(ans.type);
+                grid.appendChild(btn);
+            });
+
+            container.append(progressContainer, counter, qText, grid);
+            app.appendChild(container);
+        }
+
+        function renderResult() {
+            // Calculate percentages
+            const totalQuestions = questions.length;
+            const results = Object.keys(currentState.scores).map(key => {
+                return {
+                    key: key,
+                    name: sins[key].name,
+                    score: currentState.scores[key],
+                    percent: Math.round((currentState.scores[key] / totalQuestions) * 100), // Rough approximation for visual
+                    color: sins[key].color,
+                    desc: sins[key].desc
+                };
+            }).sort((a, b) => b.score - a.score);
+
+            const dominantSin = results[0];
+
+            const container = document.createElement('div');
+            container.className = "glass-panel rounded-2xl p-6 md:p-10 fade-in w-full flex flex-col items-center";
+
+            // Header
+            const header = document.createElement('h2');
+            header.className = "text-3xl md:text-4xl font-bold mb-2 text-center text-white";
+            header.innerText = "Your Dominant Sin is...";
+            
+            const sinName = document.createElement('h1');
+            sinName.className = "text-5xl md:text-7xl font-black mb-6 text-center cinzel drop-shadow-xl";
+            sinName.style.color = dominantSin.color;
+            sinName.innerText = dominantSin.name.toUpperCase();
+
+            const sinDesc = document.createElement('p');
+            sinDesc.className = "text-xl text-center text-blue-100 mb-8 max-w-2xl italic";
+            sinDesc.innerText = `"${dominantSin.desc}"`;
+
+            // Chart Container
+            const chartContainer = document.createElement('div');
+            chartContainer.className = "w-full max-w-md h-64 md:h-80 mb-8 relative";
+            
+            const canvas = document.createElement('canvas');
+            canvas.id = "resultsChart";
+            chartContainer.appendChild(canvas);
+
+            // Detailed List
+            const listContainer = document.createElement('div');
+            listContainer.className = "w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-8";
+
+            results.forEach(item => {
+                const row = document.createElement('div');
+                row.className = "bg-black/20 p-3 rounded-lg flex items-center justify-between border-l-4";
+                row.style.borderLeftColor = item.color;
+
+                const label = document.createElement('span');
+                label.className = "font-bold text-lg";
+                label.style.color = item.color;
+                label.innerText = item.name;
+
+                const barContainer = document.createElement('div');
+                barContainer.className = "flex-1 mx-4 h-2 bg-gray-700 rounded-full overflow-hidden";
+                const barFill = document.createElement('div');
+                barFill.className = "h-full rounded-full";
+                barFill.style.width = `${(item.score / totalQuestions) * 100}%`; // Visual scale based on max possible
+                barFill.style.backgroundColor = item.color;
+                barContainer.appendChild(barFill);
+
+                const val = document.createElement('span');
+                val.className = "text-sm font-mono text-gray-300";
+                val.innerText = item.score;
+
+                row.append(label, barContainer, val);
+                listContainer.appendChild(row);
+            });
+
+            // Retake Button
+            const btn = document.createElement('button');
+            btn.className = "bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-8 rounded-full text-lg shadow-lg btn-hover";
+            btn.innerText = "Retake Test";
+            btn.onclick = resetTest;
+
+            container.append(header, sinName, sinDesc, chartContainer, listContainer, btn);
+            app.appendChild(container);
+
+            // Initialize Chart.js
+            setTimeout(() => {
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: results.map(r => r.name),
+                        datasets: [{
+                            label: 'Sin Intensity',
+                            data: results.map(r => r.score),
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            pointBackgroundColor: results.map(r => r.color),
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: results.map(r => r.color),
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                pointLabels: {
+                                    color: 'rgba(255, 255, 255, 0.8)',
+                                    font: { size: 12, family: "'Cinzel', serif" }
+                                },
+                                ticks: { display: false, backdropColor: 'transparent' },
+                                suggestedMin: 0
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }, 100);
+        }
+
+        // --- Logic Functions ---
+
+        function startQuiz() {
+            currentState.step = 'quiz';
+            currentState.currentQuestionIndex = 0;
+            // Reset scores
+            Object.keys(currentState.scores).forEach(k => currentState.scores[k] = 0);
+            render();
+        }
+
+        function handleAnswer(sinType) {
+            if (sinType) {
+                currentState.scores[sinType]++;
+            }
+            
+            if (currentState.currentQuestionIndex < questions.length - 1) {
+                currentState.currentQuestionIndex++;
+                render();
+            } else {
+                currentState.step = 'result';
+                render();
+            }
+        }
+
+        function resetTest() {
+            currentState.step = 'welcome';
+            currentState.currentQuestionIndex = 0;
+            render();
+        }
+
+        // Initial Render
+        render();
+
+    </script>
+</body>
+</html>
