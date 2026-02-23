@@ -2929,3 +2929,484 @@ body { background: var(--bg); color: var(--blueprint-blue); font-family: var(--f
   opacity: 0.5;
 }
 </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Trolley Problem · MBTI Personality Track Test</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+   <style>
+       body {
+           font-family: 'Inter', sans-serif;
+           background: radial-gradient(circle at center, #2a0a0a 0%, #000000 100%);
+           color: #ffffff;
+           overflow-x: hidden;
+       }
+
+       /* Glassmorphism Card */
+       .glass-panel {
+           background: rgba(255, 255, 255, 0.05);
+           backdrop-filter: blur(16px);
+           -webkit-backdrop-filter: blur(16px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       }
+
+       /* Custom Scrollbar */
+       ::-webkit-scrollbar {
+           width: 8px;
+       }
+       ::-webkit-scrollbar-track {
+           background: #1a1a1a; 
+       }
+       ::-webkit-scrollbar-thumb {
+           background: #ef4444; 
+           border-radius: 4px;
+       }
+
+       /* Animations */
+       @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(10px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       
+       @keyframes pulse-red {
+           0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+           70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+           100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+       }
+
+       .animate-fade-in {
+           animation: fadeIn 0.5s ease-out forwards;
+       }
+
+       .option-card {
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+       
+       .option-card:hover {
+           transform: translateX(8px);
+           background: rgba(239, 68, 68, 0.15);
+           border-color: rgba(239, 68, 68, 0.5);
+       }
+
+       .option-card.selected {
+           background: linear-gradient(90deg, rgba(220, 38, 38, 0.8) 0%, rgba(185, 28, 28, 0.8) 100%);
+           border-color: #fca5a5;
+           box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+       }
+
+       /* Track Visualization */
+       .track-svg {
+           width: 100%;
+           height: 100%;
+           position: absolute;
+           top: 0;
+           left: 0;
+           z-index: -1;
+           opacity: 0.3;
+           pointer-events: none;
+       }
+
+       .progress-bar-fill {
+           transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+   </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative">
+
+   <!-- Background Decorative Elements -->
+   <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+       <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-900/20 rounded-full blur-[120px]"></div>
+       <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-600/10 rounded-full blur-[120px]"></div>
+       <!-- SVG Tracks -->
+       <svg class="track-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+           <path d="M0,50 Q25,50 50,50 T100,50" stroke="white" stroke-width="0.2" fill="none" stroke-dasharray="2 2" />
+           <path d="M0,52 Q25,52 50,52 T100,52" stroke="white" stroke-width="0.2" fill="none" stroke-dasharray="2 2" />
+       </svg>
+   </div>
+
+   <!-- Main Container -->
+   <main class="w-full max-w-2xl glass-panel rounded-2xl overflow-hidden flex flex-col min-h-[600px] relative animate-fade-in">
+       
+       <!-- Header -->
+       <header class="p-6 border-b border-white/10 bg-black/20">
+           <div class="flex justify-between items-center mb-4">
+               <div class="flex items-center gap-2">
+                   <span class="text-2xl">🚃</span>
+                   <h1 class="text-xl md:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-red-200">
+                       Trolley Problem
+                   </h1>
+               </div>
+               <span class="text-xs font-mono text-red-400 border border-red-900/50 px-2 py-1 rounded bg-red-950/30">MBTI TRACK</span>
+           </div>
+           
+           <!-- Progress Bar -->
+           <div class="w-full bg-gray-800/50 rounded-full h-2 overflow-hidden">
+               <div id="progressBar" class="progress-bar-fill bg-gradient-to-r from-red-600 to-red-400 h-full w-0 shadow-[0_0_10px_rgba(220,38,38,0.7)]"></div>
+           </div>
+           <div class="flex justify-between mt-2 text-xs text-gray-400 font-mono">
+               <span id="progressText">Question 1/10</span>
+               <span id="progressPercent">0%</span>
+           </div>
+       </header>
+
+       <!-- Content Area -->
+       <div id="quizContent" class="flex-1 p-6 md:p-8 flex flex-col justify-center relative">
+           <!-- Dynamic Content Injected Here -->
+       </div>
+
+       <!-- Footer / Controls -->
+       <footer class="p-6 border-t border-white/10 bg-black/20 flex justify-between items-center">
+           <button id="prevBtn" class="text-gray-400 hover:text-white text-sm font-medium transition-colors disabled:opacity-0 disabled:pointer-events-none flex items-center gap-1">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+               Back
+           </button>
+           
+           <div id="statusIndicator" class="hidden md:block text-xs text-gray-500 font-mono">
+               System Status: <span class="text-green-500">ONLINE</span>
+           </div>
+
+           <button id="nextBtn" class="bg-white text-black px-6 py-2 rounded-lg font-bold text-sm hover:bg-gray-200 transition-all transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+               Next Track
+           </button>
+       </footer>
+   </main>
+
+   <script>
+       // --- Data: Questions & Scoring Logic ---
+       // We map choices to MBTI dimensions: E/I, S/N, T/F, J/P
+       // Note: This is a simplified "gamified" logic for the sake of the code demo.
+       const questions = [
+           {
+               id: 1,
+               scenario: "A runaway trolley is heading towards five people. You are standing next to a lever that can divert the trolley to a side track where one person is standing.",
+               question: "What is your immediate instinct?",
+               options: [
+                   { text: "Pull the lever immediately. One death is mathematically better than five.", type: "T", val: 3 },
+                   { text: "Do nothing. Actively killing one person feels worse than letting five die.", type: "F", val: 3 },
+                   { text: "Look for a third option or try to warn them.", type: "N", val: 2 }
+               ]
+           },
+           {
+               id: 2,
+               scenario: "The trolley is heading towards a group of elderly people. You can divert it to a track with younger people.",
+               question: "How do you decide?",
+               options: [
+                   { text: "Youth has more potential years ahead. Divert.", type: "T", val: 2 },
+                   { text: "Age is just a number. Every life is equal.", type: "F", val: 2 },
+                   { text: "I need more data on who these people are.", type: "S", val: 2 }
+               ]
+           },
+           {
+               id: 3,
+               scenario: "You are on a bridge. A large person is next to you. If you push them off, their body will stop the trolley, saving five people below.",
+               question: "Do you push?",
+               options: [
+                   { text: "No. The personal act of pushing is murder, unlike pulling a lever.", type: "F", val: 3 },
+                   { text: "Yes. The outcome is the same (1 vs 5), regardless of the method.", type: "T", val: 3 },
+                   { text: "I freeze. I can't make that choice alone.", type: "I", val: 2 }
+               ]
+           },
+           {
+               id: 4,
+               scenario: "You have time to consult a rulebook before the trolley hits.",
+               question: "What do you look for?",
+               options: [
+                   { text: "The specific legal precedent for trolley scenarios.", type: "S", val: 2 },
+                   { text: "The underlying ethical principle of the greater good.", type: "N", val: 2 },
+                   { text: "A loophole to stop the trolley without choosing.", type: "P", val: 2 }
+               ]
+           },
+           {
+               id: 5,
+               scenario: "The trolley is heading towards five criminals. The side track has one innocent child.",
+               question: "What is the just choice?",
+               options: [
+                   { text: "Justice isn't about numbers. The innocent child must live.", type: "F", val: 3 },
+                   { text: "The criminals made their choices. Save the child.", type: "J", val: 2 },
+                   { text: "Society is better off without the criminals. Pull the lever.", type: "T", val: 3 }
+               ]
+           },
+           {
+               id: 6,
+               scenario: "You must program an AI to handle future trolley problems.",
+               question: "How do you code it?",
+               options: [
+                   { text: "Strict utilitarian calculus: Minimize total harm.", type: "T", val: 3 },
+                   { text: "Deontological rules: Never initiate force.", type: "J", val: 3 },
+                   { text: "Context-aware heuristics that adapt to the situation.", type: "P", val: 3 }
+               ]
+           },
+           {
+               id: 7,
+               scenario: "After making the choice, you must face the families.",
+               question: "How do you prepare?",
+               options: [
+                   { text: "Prepare a logical explanation of why it was necessary.", type: "T", val: 2 },
+                   { text: "Prepare to listen to their grief and apologize.", type: "F", val: 2 },
+                   { text: "Avoid them. I can't handle the emotional confrontation.", type: "I", val: 3 }
+               ]
+           },
+           {
+               id: 8,
+               scenario: "You realize the trolley brakes are slightly faulty and might stop on their own.",
+               question: "Does this change your action?",
+               options: [
+                   { text: "No. Relying on 'might' is irresponsible. I must act.", type: "J", val: 3 },
+                   { text: "Maybe. If there's a chance, I shouldn't interfere.", type: "P", val: 3 },
+                   { text: "I calculate the probability of the brakes working first.", type: "S", val: 2 }
+               ]
+           },
+           {
+               id: 9,
+               scenario: "A crowd is watching you at the lever.",
+               question: "How does their presence affect you?",
+               options: [
+                   { text: "I feel pressured to make the 'socially acceptable' choice.", type: "E", val: 2 },
+                   { text: "I tune them out. My decision is between me and my conscience.", type: "I", val: 2 },
+                   { text: "I explain my reasoning to them as I act.", type: "E", val: 2 }
+               ]
+           },
+           {
+               id: 10,
+               scenario: "The trolley problem is revealed to be a simulation.",
+               question: "How do you feel about your choice now?",
+               options: [
+                   { text: "Relieved. The consequences weren't real.", type: "S", val: 2 },
+                   { text: "Philosophically troubled. Does intent matter more than outcome?", type: "N", val: 3 },
+                   { text: "I stick by my choice. Simulation or not, it reflects my character.", type: "J", val: 3 }
+               ]
+           }
+       ];
+
+       // --- State Management ---
+       let currentQuestionIndex = 0;
+       let answers = new Array(questions.length).fill(null);
+       
+       // Scores object
+       let scores = {
+           E: 0, I: 0,
+           S: 0, N: 0,
+           T: 0, F: 0,
+           J: 0, P: 0
+       };
+
+       // --- DOM Elements ---
+       const quizContent = document.getElementById('quizContent');
+       const progressBar = document.getElementById('progressBar');
+       const progressText = document.getElementById('progressText');
+       const progressPercent = document.getElementById('progressPercent');
+       const nextBtn = document.getElementById('nextBtn');
+       const prevBtn = document.getElementById('prevBtn');
+
+       // --- Initialization ---
+       function init() {
+           renderQuestion();
+           updateProgress();
+           
+           nextBtn.addEventListener('click', handleNext);
+           prevBtn.addEventListener('click', handlePrev);
+       }
+
+       // --- Rendering ---
+       function renderQuestion() {
+           const q = questions[currentQuestionIndex];
+           const selectedIndex = answers[currentQuestionIndex];
+
+           // Fade out effect could be added here, but direct replacement is snappier for this UI
+           let html = `
+               <div class="animate-fade-in">
+                   <div class="mb-2 text-red-400 text-xs font-bold tracking-widest uppercase">Scenario ${q.id}</div>
+                   <h2 class="text-xl md:text-2xl font-light leading-relaxed mb-6 text-gray-100">
+                       ${q.scenario}
+                   </h2>
+                   <div class="w-12 h-1 bg-red-600 mb-8"></div>
+                   <h3 class="text-lg font-semibold mb-6 text-white">${q.question}</h3>
+                   <div class="space-y-3">
+           `;
+
+           q.options.forEach((opt, idx) => {
+               const isSelected = selectedIndex === idx;
+               const selectedClass = isSelected ? 'selected' : 'border-white/10 bg-white/5';
+               const icon = isSelected ? '<span class="text-white">✓</span>' : `<span class="text-gray-600 font-mono text-sm">0${idx + 1}</span>`;
+               
+               html += `
+                   <div onclick="selectOption(${idx})" 
+                        class="option-card cursor-pointer p-4 rounded-xl border ${selectedClass} flex items-center justify-between group">
+                       <span class="text-sm md:text-base font-medium ${isSelected ? 'text-white' : 'text-gray-300 group-hover:text-white'}">
+                           ${opt.text}
+                       </span>
+                       <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center ${isSelected ? 'bg-white text-black border-white' : 'group-hover:border-red-500'}">
+                           ${icon}
+                       </div>
+                   </div>
+               `;
+           });
+
+           html += `</div></div>`;
+           quizContent.innerHTML = html;
+
+           // Update Buttons
+           prevBtn.disabled = currentQuestionIndex === 0;
+           
+           if (currentQuestionIndex === questions.length - 1) {
+               nextBtn.textContent = "Reveal Analysis";
+               nextBtn.classList.replace('bg-white', 'bg-red-600');
+               nextBtn.classList.replace('text-black', 'text-white');
+               nextBtn.classList.add('hover:bg-red-700');
+           } else {
+               nextBtn.textContent = "Next Track";
+               nextBtn.classList.replace('bg-red-600', 'bg-white');
+               nextBtn.classList.replace('text-white', 'text-black');
+               nextBtn.classList.remove('hover:bg-red-700');
+           }
+
+           // Enable/Disable Next based on selection
+           nextBtn.disabled = selectedIndex === null;
+       }
+
+       // --- Logic ---
+       window.selectOption = function(index) {
+           answers[currentQuestionIndex] = index;
+           
+           // Update Scores immediately
+           const q = questions[currentQuestionIndex];
+           const opt = q.options[index];
+           
+           // Reset scores for this question to prevent double counting if re-selected
+           // (Simplified: In a real app, we'd track history, here we just overwrite/add)
+           // For this simple version, we just add to the score.
+           // To make it robust without history tracking, we rely on the final tally logic 
+           // or just accept slight drift on re-clicks. 
+           // Let's do a simple additive approach for the demo.
+           scores[opt.type] += opt.val;
+
+           renderQuestion(); // Re-render to show selection state
+           nextBtn.disabled = false;
+           
+           // Auto advance after short delay for better UX
+           setTimeout(() => {
+               if(currentQuestionIndex < questions.length -1) {
+                   // Optional: Auto advance? Let's keep it manual for reading time.
+               }
+           }, 800);
+       };
+
+       function handleNext() {
+           if (currentQuestionIndex < questions.length - 1) {
+               currentQuestionIndex++;
+               renderQuestion();
+               updateProgress();
+           } else {
+               calculateResult();
+           }
+       }
+
+       function handlePrev() {
+           if (currentQuestionIndex > 0) {
+               currentQuestionIndex--;
+               renderQuestion();
+               updateProgress();
+           }
+       }
+
+       function updateProgress() {
+           const percent = ((currentQuestionIndex) / questions.length) * 100;
+           progressBar.style.width = `${percent}%`;
+           progressText.textContent = `Question ${currentQuestionIndex + 1}/${questions.length}`;
+           progressPercent.textContent = `${Math.round(percent)}%`;
+       }
+
+       // --- Results Calculation ---
+       function calculateResult() {
+           // Determine MBTI
+           // Note: This is a simplified mapping for the interactive demo.
+           const type = [
+               scores.E >= scores.I ? 'E' : 'I',
+               scores.S >= scores.N ? 'S' : 'N',
+               scores.T >= scores.F ? 'T' : 'F',
+               scores.J >= scores.P ? 'J' : 'P'
+           ].join('');
+
+           showResult(type);
+       }
+
+       function showResult(type) {
+           updateProgress(); // Go to 100%
+           progressBar.style.width = '100%';
+           progressPercent.textContent = '100%';
+           
+           // Hide footer controls
+           document.querySelector('footer').style.display = 'none';
+           document.querySelector('header').style.display = 'none'; // Hide header for immersive result
+
+           // Result Content
+           const resultData = getResultData(type);
+           
+           const html = `
+               <div class="animate-fade-in text-center h-full flex flex-col items-center justify-center py-8">
+                   <div class="text-red-500 font-mono text-sm mb-4 tracking-widest">ANALYSIS COMPLETE</div>
+                   <h1 class="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-2">
+                       ${type}
+                   </h1>
+                   <h2 class="text-2xl font-light text-red-400 mb-8">${resultData.title}</h2>
+                   
+                   <div class="glass-panel p-6 rounded-xl w-full text-left mb-8 border-l-4 border-red-600">
+                       <p class="text-gray-300 leading-relaxed italic">
+                           "${resultData.desc}"
+                       </p>
+                   </div>
+
+                   <div class="grid grid-cols-2 gap-4 w-full mb-8">
+                       <div class="bg-white/5 p-4 rounded-lg">
+                           <div class="text-xs text-gray-500 uppercase">Dominant Trait</div>
+                           <div class="text-white font-bold">${resultData.trait}</div>
+                       </div>
+                       <div class="bg-white/5 p-4 rounded-lg">
+                           <div class="text-xs text-gray-500 uppercase">Trolley Strategy</div>
+                           <div class="text-white font-bold">${resultData.strategy}</div>
+                       </div>
+                   </div>
+
+                   <button onclick="location.reload()" class="text-gray-400 hover:text-white text-sm underline decoration-red-500 underline-offset-4">
+                       Restart Simulation
+                   </button>
+               </div>
+           `;
+           
+           quizContent.innerHTML = html;
+       }
+
+       function getResultData(type) {
+           // Simple mapping for demo purposes
+           const map = {
+               'INTJ': { title: "The Architect", desc: "You view the trolley problem as a system design failure. You pulled the lever not just to save lives, but to optimize the efficiency of the transit network. Emotions are variables, not constants.", trait: "Strategic", strategy: "System Override" },
+               'INTP': { title: "The Logician", desc: "You spent so long analyzing the philosophical implications of 'intention' vs 'action' that the trolley hit everyone. You prefer the theoretical purity of the dilemma over the messy reality.", trait: "Abstract", strategy: "Analysis Paralysis" },
+               'ENTJ': { title: "The Commander", desc: "You pulled the lever immediately and then organized the survivors into a committee to prevent future accidents. You see the crisis as an opportunity for leadership.", trait: "Leadership", strategy: "Decisive Action" },
+               'ENTP': { title: "The Debater", desc: "You diverted the trolley, then argued with the survivors about why the other choice would have been equally valid. You love the puzzle, not the solution.", trait: "Innovation", strategy: "Devil's Advocate" },
+               'INFJ': { title: "The Advocate", desc: "You looked for the third option. You tried to derail the trolley or sacrifice yourself. You refuse to accept a binary choice when lives are at stake.", trait: "Idealistic", strategy: "The Third Way" },
+               'INFP': { title: "The Mediator", desc: "You couldn't pull the lever. The weight of actively causing a death, even to save five, was too heavy for your heart. You believe in the sanctity of individual choice.", trait: "Empathy", strategy: "Non-Intervention" },
+               'ENFJ': { title: "The Protagonist", desc: "You pulled the lever because you felt the collective will of the five people wanting to live. You are driven by the harmony of the greater good.", trait: "Charisma", strategy: "Heroic Sacrifice" },
+               'ENFP': { title: "The Campaigner", desc: "You tried to warn everyone, hoping they would move. You believe in the potential for spontaneous solutions and hate being boxed in by logic.", trait: "Spontaneity", strategy: "Warning Shout" },
+               'ISTJ': { title: "The Logistician", desc: "You followed the standard safety protocol. You pulled the lever because that is what the manual says to do in a 'Multi-Track Drift' scenario.", trait: "Integrity", strategy: "By The Book" },
+               'ISFJ': { title: "The Defender", desc: "You couldn't decide. You protected the person closest to you, or the one you could see most clearly. Your loyalty is to the individual in front of you.", trait: "Protective", strategy: "Proximity Bias" },
+               'ESTJ': { title: "The Executive", desc: "You pulled the lever because the law of utility demands it. You enforced the outcome that resulted in the least paperwork and lowest liability for the city.", trait: "Management", strategy: "Utilitarian Enforcer" },
+               'ESFJ': { title: "The Consul", desc: "You asked the crowd what you should do. You want to make a choice that society can accept and live with peacefully.", trait: "Harmony", strategy: "Social Consensus" },
+               'ISTP': { title: "The Virtuoso", desc: "You calculated the velocity, mass, and trajectory. You pulled the lever because the physics worked out. It was a technical problem, not a moral one.", trait: "Pragmatic", strategy: "Technical Fix" },
+               'ISFP': { title: "The Adventurer", desc: "You froze. The moment was too intense, too real. You react in the moment based on gut feeling, not pre-planned logic.", trait: "Sensory", strategy: "Instinct" },
+               'ESTP': { title: "The Entrepreneur", desc: "You pulled the lever on a whim. It felt right in the moment. You are comfortable with high-risk decisions and immediate consequences.", trait: "Action", strategy: "Impulse" },
+               'ESFP': { title: "The Entertainer", desc: "You tried to stop the trolley with your bare hands or by distracting it. You prefer dramatic, physical intervention over cold calculation.", trait: "Energy", strategy: "Direct Intervention" }
+           };
+           
+           return map[type] || { title: "The Undefined", desc: "Your logic is too complex for standard MBTI metrics.", trait: "Chaos", strategy: "Random" };
+       }
+
+       // Start
+       init();
+
+   </script>
+</body>
+</html>
