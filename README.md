@@ -7259,3 +7259,20 @@ body { background: var(--bg); color: var(--blueprint-blue); font-family: var(--f
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alpha Turbo Morse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hud">
+        <div class="label">SIGNAL INPUT</div>
+        <div id="morse-buffer">....</div> <div class="divider"></div>
+        
+        <div class="label">TRANSLATED OUTPUT</div>
+        <div id="char-display">A</div> </div>
+    <script src="src/index.js"></script>
+</body>
+</html>
