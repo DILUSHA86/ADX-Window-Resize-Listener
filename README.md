@@ -1,3 +1,8 @@
+<div class="divider"></div>
+<div class="label">HISTORY LOG</div>
+<div id="history-container">
+    <span class="history-item">_</span>
+</div>
 67u3u8<!DOCTYPE html>
 <html lang="en">
 <head>
